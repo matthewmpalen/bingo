@@ -13,7 +13,7 @@ const (
 
 type (
 	Bing struct {
-		News newsAPI
+		Search searchAPI
 	}
 
 	baseAPI struct {
@@ -29,7 +29,7 @@ type (
 
 func NewBing(apiKey string) *Bing {
 	client := &http.Client{}
-	return &Bing{News: newNewsAPI(client, apiKey)}
+	return &Bing{Search: newSearchAPI(client, apiKey)}
 }
 
 func (a baseAPI) signRequest(r *http.Request) {
